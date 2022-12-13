@@ -4,7 +4,7 @@ const User = require("../Models/user.model")
 const cors = require("cors")
 const connect = require("../Connect/Connect")
 const req = require("express/lib/request")
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8080
 mongoose.set('strictQuery', true)
 const server = express()
 server.use(express.json())
