@@ -31,7 +31,7 @@ server.post("/login", async (req, res) => {
   }
 });
 
-server.get("/emi", async (req, res) => {
+server.post("/emi", async (req, res) => {
   let { amount, interest, tenure } = req.body;
   if (interest == Number(interest)) {
 
