@@ -13,7 +13,7 @@ server.use(cors());
 server.get("/", async (req, res) => {
   res.status(200).send("Hello Welcome to my server");
 });
-server.get("/login", async (req, res) => {
+server.post("/login", async (req, res) => {
   //   let user = await User.find();
   //   res.status(200).send({ message: "successfully get", data: user });
   let { name, email, password } = req.body;
