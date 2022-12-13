@@ -22,7 +22,7 @@ server.post("/login", async (req, res) => {
     if (!user) {
       return res.status(401).send("Incorrect credential, User not Found");
     }
-    let timestamp = new Date();
+    let timestamp = new Date().toLocaleString("en-US", {timeZone: 'Asia/Kolkata'});
     res.status(200).send({
       token: `${user.id}:${user.email}:${timestamp}`,
     });
