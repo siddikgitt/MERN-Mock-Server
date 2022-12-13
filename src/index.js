@@ -24,7 +24,7 @@ server.post("/login", async (req, res) => {
     }
     let timestamp = new Date().toLocaleString("en-US", {timeZone: 'Asia/Kolkata'});
     res.status(200).send({
-      token: `${user.id}::/${user.email}::/${timestamp}`,
+      token: `${user.id}::/${user.name}::/${user.email}::/${timestamp}`,
     });
   } catch (err) {
     res.status(500).send(err.message);
