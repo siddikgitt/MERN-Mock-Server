@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express.Router();
 
-const User = require("../Models/user.model");
+const User = require("../Models/list.model");
 app.use("/login", async (req, res) => {
   let { name, email, password } = req.body;
   try {
