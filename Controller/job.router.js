@@ -2,6 +2,7 @@ const express = require("express");
 const Job = require("../Models/job.model");
 const jobRouter = express.Router();
 jobRouter.post("/", async (req, res) => {
+    console.log(req.body);
   try {
     const data = await Job.create(req.body);
     return res.status(200).send({ message: "Data added", data: data });
@@ -18,12 +19,12 @@ jobRouter.get("/", async (req, res) => {
     if (search) {
       if (filter) {
         if (sort == "asc") {
-          newJob = await Job.find({ role: filter })
+          newJob = await Job.find({ role: filter, language: search })
             .sort({ createdAt: 1 })
             .skip(10 * (page - 1))
             .limit(limit);
         } else if (sort == "desc") {
-          newJob = await Job.find({ role: filter })
+          newJob = await Job.find({ role: filter, language: search })
             .sort({ createdAt: -1 })
             .skip(10 * (page - 1))
             .limit(limit);
