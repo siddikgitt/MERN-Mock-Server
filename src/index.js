@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const connect = require("../Connect/Connect");
 const req = require("express/lib/request");
-const jobRouter = require("../Controller/job.router");
+const userRouter = require("../Controller/user.router");
+const randomRouter = require("../Controller/random.router");
 const PORT = process.env.PORT || 8080;
 mongoose.set("strictQuery", true);
 const server = express();
@@ -14,8 +15,11 @@ server.get("/", async (req, res) => {
   res.status(200).send("Hello Welcome to my server");
 });
 
-//JOB ROUTER
-server.use("/job", jobRouter);
+//USER ROUTER
+server.use("/user", userRouter);
+
+//RANDOM WORD ROUTER
+server.use("/random", randomRouter);
 
 server.listen(PORT, async () => {
   await connect();
